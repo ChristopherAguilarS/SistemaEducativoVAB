@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('genericas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion');
+            $table->string('codigo',6);
             $table->boolean('estado');
             $table->unsignedInteger('tipo_transaccion_id'); 
             $table->foreign('tipo_transaccion_id')->references('id')->on('tipo_transacciones');

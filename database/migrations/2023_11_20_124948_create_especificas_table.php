@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('especificas_nivel_1', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion');
+            $table->string('codigo',14);
             $table->boolean('estado');
             $table->unsignedInteger('sub_generica_nivel_2_id'); 
             $table->foreign('sub_generica_nivel_2_id')->references('id')->on('sub_genericas_nivel_2');

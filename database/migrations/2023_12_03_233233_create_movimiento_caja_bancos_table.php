@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('codigo');
             $table->unsignedInteger('cuenta_id'); 
             $table->foreign('cuenta_id')->references('id')->on('cuentas');
-            $table->string('descripcion');            
+            $table->string('descripcion');  
+            $table->date('fecha');          
             $table->integer('tipo');
             $table->decimal('monto', $precision = 8, $scale = 2);
             $table->boolean('estado');

@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sub_genericas_nivel_2', function (Blueprint $table) {
+        Schema::create('tipo_ciclos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion');
-            $table->string('codigo',10);
             $table->boolean('estado');
-            $table->unsignedInteger('sub_generica_nivel_1_id'); 
-            $table->foreign('sub_generica_nivel_1_id')->references('id')->on('sub_genericas_nivel_1');
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sub_genericas_nivel_2');
+        Schema::dropIfExists('tipo_ciclos');
     }
 };

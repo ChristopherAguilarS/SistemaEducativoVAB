@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tipo_transacciones', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('codigo',6);
             $table->string('descripcion');
             $table->boolean('estado');
             $table->timestamps();
