@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PlanAnualTrabajo extends Model
 {
@@ -23,5 +24,10 @@ class PlanAnualTrabajo extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function actividades(): HasMany
+    {
+        return $this->hasMany('App\Models\ActividadOperativa', 'plan_anual_trabajo_id', 'id');
+    }
 
 }

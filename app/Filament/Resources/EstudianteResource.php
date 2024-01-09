@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EstudianteResource extends Resource
@@ -19,11 +20,19 @@ class EstudianteResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Academico';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nro_estudiante')->label('N° Estudiante')->required(),
+                Forms\Components\Select::make('persona_id')
+                ->relationship('persona', 'nombres',fn (Builder $query) => $query->where('estado', 1))
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->nombres} {$record->ape_pat} {$record->ape_mat}")
+                    ->searchable()
+                    ->preload()
+                    ->required(),
             ]);
     }
 
