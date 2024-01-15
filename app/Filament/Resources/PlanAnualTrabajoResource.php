@@ -28,30 +28,30 @@ class PlanAnualTrabajoResource extends Resource
                         Grid::make(6)
                         ->schema([
                             Forms\Components\Select::make('año')->options([
-                                    2021 => '2021',
-                                    2022 => '2022',
-                                    2023 => '2023',
-                                    2024 => '2024',
-                                    2025 => '2025',
-                                    2026 => '2026',
-                                    2027 => '2027',
-                                    2028 => '2028',
-                                    2029 => '2029',
-                                    ])->required(),
+                                2021 => '2021',
+                                2022 => '2022',
+                                2023 => '2023',
+                                2024 => '2024',
+                                2025 => '2025',
+                                2026 => '2026',
+                                2027 => '2027',
+                                2028 => '2028',
+                                2029 => '2029',
+                            ])->required(),
                             Forms\Components\TextInput::make('nombre')->required()->columnSpan(3),
                             Forms\Components\TextInput::make('ruc')->required(),
                             ]),
                             Forms\Components\TextInput::make('resolucion')->required(),
                         Grid::make(2)
                             ->schema([
-                                    Forms\Components\TextInput::make('direccion')->required(),
-                                    Forms\Components\TextInput::make('nombre_director')->required()
+                                Forms\Components\TextInput::make('direccion')->required(),
+                                Forms\Components\TextInput::make('nombre_director')->required()
                             ]),
                         Grid::make(2)
                             ->schema([
-                            Forms\Components\Textarea::make('lista_servicios')->label('Lista de servicios')->required(),                    
-                            Forms\Components\Textarea::make('tipo_gestion')->label('Tipo de gestion')->required(),
-                        ]),
+                                Forms\Components\Textarea::make('lista_servicios')->label('Lista de servicios')->required(),                    
+                                Forms\Components\Textarea::make('tipo_gestion')->label('Tipo de gestion')->required(),
+                            ]),
                     ]);
     }
 

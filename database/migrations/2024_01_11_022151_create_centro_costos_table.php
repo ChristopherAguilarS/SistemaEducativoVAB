@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('actividades_operativas', function (Blueprint $table) {
+        Schema::create('centro_costos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo');
             $table->string('descripcion',1000);
-            $table->unsignedInteger('plan_anual_trabajo_id'); 
-            $table->foreign('plan_anual_trabajo_id')->references('id')->on('plan_anual_trabajos');
+            $table->unsignedInteger('area_id'); 
+            $table->foreign('area_id')->references('id')->on('areas');
+            $table->unsignedInteger('centro_costo_id')->nullable(); 
+            $table->foreign('centro_costo_id')->references('id')->on('centro_costos');
             $table->boolean('estado');            
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('actividades_operativas');
+        Schema::dropIfExists('centro_costos');
     }
 };

@@ -25,6 +25,8 @@ return new class extends Migration
             $table->decimal('presupuesto', $precision = 10, $scale = 2);
             $table->unsignedInteger('sub_generica_nivel_1_id'); 
             $table->foreign('sub_generica_nivel_1_id')->references('id')->on('sub_genericas_nivel_1');
+            $table->unsignedInteger('centro_costo_id'); 
+            $table->foreign('centro_costo_id')->references('id')->on('centro_costos');
             $table->boolean('estado');            
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();
